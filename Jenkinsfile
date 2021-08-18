@@ -32,7 +32,7 @@ pipeline {
 
     stage('push-schedule') {
       steps {
-        build 'SgroupBbsExtractBatchJob'
+        build 'SchedulePushSendMessageChunkJob'
       }
     }
 
