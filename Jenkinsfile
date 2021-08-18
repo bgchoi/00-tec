@@ -1,9 +1,9 @@
 pipeline {
-  agent none
+  agent any
   stages {
-    stage('push-schedule') {
+    stage('extract-bbs') {
       steps {
-        build 'SchedulePushSendMessageChunkJob'
+        build 'SgroupBbsExtractBatchJob'
       }
     }
 
@@ -30,8 +30,11 @@ pipeline {
       }
     }
 
-  }
-  environment {
-    aa = '10'
+    stage('push-schedule') {
+      steps {
+        build 'SgroupBbsExtractBatchJob'
+      }
+    }
+
   }
 }
